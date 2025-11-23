@@ -54,4 +54,4 @@ Clone o repositório (ou use a cópia local já existente).
 Execute o script principal:
 python main.py
 
-docs: Finaliza a documentação README.md com detalhes de POO e padrões
+
