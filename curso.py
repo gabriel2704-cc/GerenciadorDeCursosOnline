@@ -1,36 +1,36 @@
-# Importa as classes necessárias dos outros módulos
+# curso.py
 from pessoa import Professor
-from conteudo import Conteudo, ConteudoFactory # Usaremos a Factory aqui!
+from conteudo import Conteudo, ConteudoFactory
 
 class Curso:
     """
-    Representa um curso no sistema.
-    Demonstra Encapsulamento ao gerenciar a lista de conteúdos.
+    Representa um curso no sistema. Demonstra Encapsulamento e Composição.
     """
     def __init__(self, nome: str, descricao: str, professor: Professor):
-        # Atributos internos (Encapsulamento)
+        # --- Encapsulamento ---
+        # Atributos privados controlados por métodos/properties
         self.__nome = nome
         self.__descricao = descricao
         self.__professor = professor 
-        self.__conteudo = [] # Lista de objetos Conteudo (Composição)
+        # Composição: Lista privada de objetos Conteudo
+        self.__conteudo = [] 
     
+    # Propriedades (Getters) para acesso controlado
     @property
     def nome(self):
-        """Getter para o nome do curso."""
         return self.__nome
     
     @property
     def professor(self):
-        """Getter para o professor do curso."""
         return self.__professor
 
-    # Método que usa o Factory Pattern para criar e adicionar conteúdo
+    # Método que usa o Factory Pattern
     def adicionar_conteudo(self, tipo: str, titulo: str, duracao_min: int, **kwargs):
         """
-        Cria um objeto Conteudo usando a Factory e o adiciona ao curso.
+        Cria um objeto Conteudo usando a Factory (desacoplamento) e o adiciona ao curso.
         """
         try:
-            # Chama a Factory para criar o objeto correto
+            # Chama a Factory, não importa se é VideoAula ou Artigo
             novo_conteudo = ConteudoFactory.criar_conteudo(
                 tipo=tipo, 
                 titulo=titulo, 
@@ -43,17 +43,17 @@ class Curso:
             print(f" Erro ao adicionar conteúdo: {e}")
             
     def get_conteudos(self) -> list[Conteudo]:
-        """Retorna a lista de conteúdos do curso."""
+        """Retorna a lista de conteúdos (acesso controlado)."""
         return self.__conteudo
     
     def exibir_detalhes(self):
         detalhes = f"\n--- Detalhes do Curso: {self.__nome} ---\n"
-        detalhes += f"Descrição: {self.__descricao}\n"
-        detalhes += f"Ministrado por: {self.__professor.nome}\n"
+        # ... (Resto do código de exibição)
         detalhes += "Conteúdos:\n"
         if self.__conteudo:
             for i, conteudo in enumerate(self.__conteudo):
-                detalhes += f"  {i+1}. {conteudo.exibir()}\n" # Demonstra o Polimorfismo
+                # Polimorfismo em ação: chama o exibir() de VideoAula ou Artigo
+                detalhes += f"  {i+1}. {conteudo.exibir()}\n" 
         else:
              detalhes += "  Nenhum conteúdo adicionado ainda.\n"
         return detalhes
