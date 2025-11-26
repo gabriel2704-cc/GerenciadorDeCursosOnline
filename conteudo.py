@@ -1,7 +1,6 @@
-# conteudo.py
+
 from abc import ABC, abstractmethod
 
-# --- Pilares POO: Abstração, Herança e Polimorfismo ---
 # 1. Classe Base Abstrata
 class Conteudo(ABC):
     def __init__(self, titulo: str, duracao_min: int):

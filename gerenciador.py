@@ -29,6 +29,9 @@ class GerenciadorCursos:
     def adicionar_curso(self, curso):
         self.__cursos.append(curso)
         print(f"Curso '{curso.nome}' adicionado ao catálogo.")
+    #garante que, não importa quantas vezes ele seja chamado, 
+    # ele sempre retorna a mesma e única instância que já está criada, 
+    # atuando como o ponto de acesso global e seguro para o catálogo."
 
     def listar_cursos(self):
         return self.__cursos

@@ -1,7 +1,6 @@
 # pessoa.py
 from abc import ABC, abstractmethod
 
-# --- Pilares POO: Abstração, Herança e Polimorfismo ---
 
 # 1. Classe Base Abstrata (Abstração)
 class Pessoa(ABC):
@@ -14,7 +13,7 @@ class Pessoa(ABC):
         """Método abstrato forçando a implementação nas subclasses (Polimorfismo)."""
         pass
 
-# 2. Subclasse Professor (Herança e Polimorfismo)
+# 2. Subclasse Professor 
 class Professor(Pessoa):
     def __init__(self, nome, email, especialidade):
         # Herança: Chama o construtor da classe base Pessoa
@@ -29,7 +28,7 @@ class Professor(Pessoa):
         """Implementação específica do método abstrato (Polimorfismo)."""
         return f"Perfil do Professor: {self.nome} ({self.especialidade})"
 
-# 3. Subclasse Aluno (Herança e Polimorfismo)
+# 3. Subclasse Aluno 
 class Aluno(Pessoa):
     def __init__(self, nome, email, matricula):
         # Herança: Chama o construtor da classe base Pessoa

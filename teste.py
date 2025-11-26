@@ -17,7 +17,7 @@ def configurar_sistema():
     outro_gerenciador = GerenciadorCursos.get_instancia()
     print(f"Instância é a mesma? {gerenciador is outro_gerenciador}\n")
 
-    # 2. Criação de Usuários (Herança)
+    # 2. Criação de Usuários 
     print("--- 2. Criação de Usuários (Herança) ---")
     prof_oo = Professor("Vanessa Lago", "vanessa@faculdade.br", "POO e Padrões de Projeto")
     aluno_a = Aluno("João Silva", "joao@aluno.br", "2025001")

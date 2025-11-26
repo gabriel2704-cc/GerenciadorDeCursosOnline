@@ -57,3 +57,7 @@ class Curso:
         else:
              detalhes += "  Nenhum conteúdo adicionado ainda.\n"
         return detalhes
+    
+#Acessa a Lista de Conteúdo: Ele verifica a lista self.__conteudo (que contém todos os objetos VideoAula e Artigo adicionados ao curso).
+#Percorre com o Laço for: Ele usa um laço for (enumerate) para iterar sobre cada item dessa lista.
+#Demonstra Polimorfismo: Para cada item, ele chama o método conteudo.exibir()
